@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BookOpen, ChevronRight, CreditCard, Calendar, Mail, ShieldCheck } from "lucide-react";
+import { ChevronRight, CreditCard, Calendar, Mail, ShieldCheck } from "lucide-react";
 
 export default function TheBookPage() {
   const [emailInput, setEmailInput] = useState("");
@@ -27,7 +27,7 @@ export default function TheBookPage() {
   return (
     <div className="min-h-screen bg-brand-tint text-brand-black font-body selection:bg-brand-gold/30">
       
-      {/* Structural Header Padding (Assuming Navigation is handled globally) */}
+      {/* Structural Header Padding */}
       <div className="pt-24 pb-12 px-6">
         <div className="max-w-5xl mx-auto">
           
@@ -100,25 +100,14 @@ export default function TheBookPage() {
               </div>
             </div>
 
-            {/* Right Column: Visual Book Placeholder / 3D Render */}
+            {/* Right Column: Visual Book Image */}
             <div className="relative flex justify-center lg:justify-end">
-              <div className="aspect-[3/4] w-full max-w-md bg-brand-black rounded-sm shadow-2xl flex flex-col items-center justify-center border border-brand-gold/30 p-8 text-center relative overflow-hidden group">
-                {/* Abstract Book Cover Design styling */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-brand-gold"></div>
-                <div className="absolute top-0 left-4 w-1 h-full bg-brand-tint/10 shadow-xl"></div>
-                
-                <BookOpen className="w-16 h-16 text-brand-gold mb-8 group-hover:scale-110 transition-transform duration-500" />
-                <h2 className="font-display text-4xl text-brand-tint uppercase tracking-tight leading-none mb-2">
-                  The 3R Method™
-                </h2>
-                <p className="text-[10px] text-brand-gold uppercase tracking-[0.2em] font-bold">
-                  Reset. Rebalance. Reclaim.
-                </p>
-                <div className="mt-auto pt-12">
-                  <p className="text-xs text-brand-tint uppercase tracking-widest">
-                    Dr Vanessa Stirzaker
-                  </p>
-                </div>
+              <div className="relative w-full max-w-[280px] sm:max-w-sm lg:max-w-md shadow-2xl group cursor-default">
+                <img 
+                  src="/book.avif" 
+                  alt="The 3R Method Book Cover" 
+                  className="w-full h-auto object-cover rounded-sm border border-brand-gold/10 group-hover:scale-[1.02] transition-transform duration-500" 
+                />
               </div>
             </div>
 
