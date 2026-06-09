@@ -27,12 +27,12 @@ export default function CoursesPage() {
           <nav className="flex items-center justify-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-brand-black/50 mb-12">
             <Link href="/" className="hover:text-brand-gold transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
-            <Link href="/resources/library" className="hover:text-brand-gold transition-colors">Work With Me</Link>
+            <span className="text-brand-black">Work With Me</span>
             <ChevronRight className="w-3 h-3" />
             <span className="text-brand-black">Courses</span>
           </nav>
 
-          {/* Coming Soon Badge (Section 9.2 Structural Note) */}
+          {/* Coming Soon Badge */}
           <div className="inline-flex items-center space-x-2 bg-brand-black text-brand-tint px-4 py-1.5 rounded-full mb-8">
             <GraduationCap className="w-4 h-4 text-brand-gold" />
             <span className="text-[10px] font-bold tracking-widest uppercase font-body">
@@ -49,7 +49,7 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      {/* 2. COURSE INTRO & WAITLIST CAPTURE (Section 9.2) */}
+      {/* 2. COURSE INTRO & WAITLIST CAPTURE */}
       <section className="pb-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           

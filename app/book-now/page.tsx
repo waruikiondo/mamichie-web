@@ -40,13 +40,12 @@ export default function BookNowPage() {
             <div className="p-8 border-b border-brand-gold/10 bg-brand-tint/10 flex justify-between items-center">
               <div>
                 <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-black">Select a Time</h2>
-                <p className="text-xs text-brand-black/60 font-medium mt-1">All available times are displayed in your local timezone.</p>
+                <p className="text-xs text-brand-black/60 font-medium mt-1">All available times are displayed in your local time zone.</p>
               </div>
               <Calendar className="w-6 h-6 text-brand-gold/50 hidden sm:block" />
             </div>
 
-            {/* 
-              DEVELOPER NOTE: 
+            {/* DEVELOPER NOTE: 
               Replace this flex container below with your specific booking iframe 
               (e.g., Calendly, Acuity, or Jane App embed code). 
             */}
@@ -100,7 +99,7 @@ export default function BookNowPage() {
                 <Globe className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
                 <p className="text-[11px] text-brand-black/70 leading-relaxed">
                   <strong className="text-brand-black block uppercase tracking-wider mb-0.5">Global Virtual Practice</strong>
-                  Consultations are available to women internationally. Please ensure you select your correct timezone when booking.
+                  Consultations are available to women internationally. Please ensure you select your correct time zone when booking.
                 </p>
               </div>
               <div className="flex items-start space-x-3 border-t border-brand-gold/10 pt-4">

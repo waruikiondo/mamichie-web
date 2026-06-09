@@ -55,7 +55,7 @@ export default function ResidencyPage() {
               The Residency is built on one clinical conviction: that midlife hormonal change is not a single event to be managed, but a biological transition that affects every system in the body.
             </p>
             <p>
-              While a single consultation provides immediate direction, true biological recalibration requires sustained oversight. The Residency is our most comprehensive offering. It provides you with direct, ongoing access to Dr Vanessa Stirzaker to execute the 3R Method™ in real-time.
+              While a single consultation provides immediate direction, true biological recalibration requires sustained oversight. The Residency is our most comprehensive offering. It provides you with direct, ongoing access to Dr Vanessa Stirzaker to execute the 3R Method™ in real time.
             </p>
             <p className="font-bold text-brand-black italic">
               We do not manage the phase. We rebuild the foundation.

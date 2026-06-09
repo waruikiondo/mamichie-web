@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BookOpen, ChevronRight, ShoppingCart, Calendar, Mail } from "lucide-react";
+import { BookOpen, ChevronRight, CreditCard, Calendar, Mail, ShieldCheck } from "lucide-react";
 
 export default function TheBookPage() {
   const [emailInput, setEmailInput] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,6 +16,12 @@ export default function TheBookPage() {
       setIsSubmitted(true);
       setEmailInput("");
     }
+  };
+
+  const handlePurchase = () => {
+    setIsProcessing(true);
+    // This instantly redirects the user to your Stripe Test checkout
+    window.location.href = "https://buy.stripe.com/test_fZu4gB9cA78P4Ph4KT2oE00";
   };
 
   return (
@@ -33,7 +40,7 @@ export default function TheBookPage() {
             <span className="text-brand-black">The Book</span>
           </nav>
 
-          {/* Main Book Hero Section (Section 13.2 & 13.3) */}
+          {/* Main Book Hero Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Column: Text & CTAs */}
@@ -43,13 +50,13 @@ export default function TheBookPage() {
                   The 3R Method™: The Book
                 </h1>
                 <p className="font-body text-sm sm:text-base font-bold tracking-widest text-brand-gold uppercase mt-4">
-                  The Amazon bestselling guide to precision health for midlife women.
+                  The definitive clinical guide to precision health for midlife women.
                 </p>
               </div>
 
               <hr className="w-16 h-[1px] bg-brand-gold border-none" />
 
-              {/* Body Copy (Section 13.4) */}
+              {/* Body Copy */}
               <div className="prose prose-brand text-brand-black/80 text-sm leading-relaxed space-y-6 text-justify">
                 <p>
                   The 3R Method™ began as a clinical framework built inside Dr Vanessa Stirzaker&apos;s practice. This book brings that framework to women worldwide.
@@ -65,17 +72,16 @@ export default function TheBookPage() {
                 </p>
               </div>
 
-              {/* CTA Buttons (Section 13.5) */}
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a 
-                  href="https://amazon.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 bg-brand-gold text-brand-tint px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black transition-all shadow-md w-full sm:w-auto"
+                <button 
+                  onClick={handlePurchase}
+                  disabled={isProcessing}
+                  className="flex items-center justify-center space-x-2 bg-brand-gold text-brand-tint px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black transition-all shadow-md w-full sm:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <ShoppingCart className="w-4 h-4" />
-                  <span>Buy on Amazon</span>
-                </a>
+                  <CreditCard className="w-4 h-4" />
+                  <span>{isProcessing ? "Connecting securely..." : "Purchase Directly • £14.99"}</span>
+                </button>
                 
                 {/* Secondary CTA is strictly critical for warm leads */}
                 <Link 
@@ -83,8 +89,14 @@ export default function TheBookPage() {
                   className="flex items-center justify-center space-x-2 border border-brand-black text-brand-black px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all w-full sm:w-auto"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>Book a Consultation with Dr Stirzaker</span>
+                  <span>Book a Consultation</span>
                 </Link>
+              </div>
+              
+              {/* Trust Micro-copy for direct purchasing */}
+              <div className="flex items-center space-x-2 text-[10px] uppercase tracking-widest text-brand-black/40 font-bold mt-2">
+                <ShieldCheck className="w-3 h-3 text-brand-gold" />
+                <span>Secure payment processing via Stripe</span>
               </div>
             </div>
 
@@ -114,7 +126,7 @@ export default function TheBookPage() {
         </div>
       </div>
 
-      {/* Reader Email Capture Section (Section 13.6) */}
+      {/* Reader Email Capture Section */}
       <section className="bg-brand-black text-brand-tint py-20 border-t border-brand-gold/20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           

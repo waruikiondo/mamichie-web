@@ -42,7 +42,7 @@ export default function ConsultationsPage() {
               A consultation with Dr Vanessa Stirzaker is a root-cause investigation. We do not offer standard 10-minute appointments to simply prescribe and dismiss. Every session is designed to unpack your complex hormonal architecture including oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin.
             </p>
             <p>
-              We utilise objective markers to guide and measure progress. This is the application of the 3R Method™ in a one-to-one clinical environment.
+              We use objective markers to guide and measure progress. This is the application of the 3R Method™ in a one-to-one clinical environment.
             </p>
           </div>
         </div>
