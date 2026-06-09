@@ -29,7 +29,7 @@ export default function AboutPage() {
           {/* Left Column: Flowing Text */}
           <div className="lg:col-span-7 space-y-6 text-sm sm:text-base leading-relaxed text-brand-black/80 text-justify">
             <p>
-              Dr Vanessa Stirzaker is an NHS-trained clinician whose career has spanned primary care and secondary care, including intensive care medicine. She now dedicates her practice exclusively to women&apos;s hormonal health and menopause medicine, and holds an internationally accredited specialist qualification in Menopause Medicine.
+              Dr Vanessa Stirzaker is an NHS-trained clinician whose career has spanned primary and secondary care, including critical care medicine. She now dedicates her practice exclusively to women&apos;s hormonal health and menopause medicine, and holds an internationally accredited specialist qualification in Menopause Medicine.
             </p>
             <p>
               Her clinical interests are grounded in precision medicine: the application of objective data, individual physiology and root-cause investigation to deliver outcomes that symptom-led protocols cannot achieve.
@@ -38,7 +38,7 @@ export default function AboutPage() {
               She is the founder of Mamichie Healthcare®, a registered and trademarked global virtual practice, and the developer of the 3R Method™: an internationally accredited, proprietary clinical framework for perimenopause, menopause and post-menopause reset.
             </p>
             <p>
-              Dr Stirzaker is also the author of the Amazon bestselling book on the 3R Method™, bringing precision menopause medicine to women worldwide.
+              Dr Stirzaker is also the author of the Amazon best-selling book on the 3R Method™, bringing precision menopause medicine to women worldwide.
             </p>
             <p className="font-medium text-brand-black p-6 bg-brand-gold/5 border-l-2 border-brand-gold mt-8">
               Her approach sits at the intersection of conventional hormonal medicine and metabolic precision health: examining oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin as inseparable components of midlife hormonal health.
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-brand-gold font-bold mt-0.5">•</span>
-                  <span>Clinical experience across primary care and secondary care intensive medicine</span>
+                  <span>Clinical experience across primary and secondary critical care</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-brand-gold font-bold mt-0.5">•</span>
@@ -117,7 +117,7 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-brand-gold font-bold mt-0.5">•</span>
-                  <span>Amazon bestselling author</span>
+                  <span>Amazon best-selling author</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-brand-gold font-bold mt-0.5">•</span>
