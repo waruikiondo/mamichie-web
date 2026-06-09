@@ -63,38 +63,39 @@ export default function BookNowPage() {
           {/* Right Column: Process & Reassurance Panel */}
           <div className="lg:col-span-4 space-y-6">
             
-            <div className="bg-brand-black text-brand-tint p-8 rounded-sm shadow-md">
-              <h3 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-gold mb-6">
+            {/* What to Expect - UPDATED TO LIGHT THEME */}
+            <div className="bg-white border border-brand-gold/20 p-8 rounded-sm shadow-sm">
+              <h3 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-black mb-6">
                 What to Expect
               </h3>
               
-              <ul className="space-y-6 relative before:absolute before:inset-0 before:ml-2.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-brand-gold/20 before:to-transparent">
+              <ul className="space-y-6 relative before:absolute before:inset-0 before:left-3 before:h-full before:w-[1px] before:bg-gradient-to-b before:from-brand-gold/50 before:via-brand-gold/20 before:to-transparent">
                 <li className="relative flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0 z-10 text-brand-black font-bold text-[10px]">1</div>
+                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0 z-10 text-brand-black font-bold text-[10px] shadow-sm">1</div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wide text-white mb-1">Schedule</h4>
-                    <p className="text-xs text-brand-tint/70 leading-relaxed font-body">Select your preferred time slot and complete the initial payment to secure your booking.</p>
+                    <h4 className="text-sm font-bold uppercase tracking-wide text-brand-black mb-1">Schedule</h4>
+                    <p className="text-xs text-brand-black/70 leading-relaxed font-body">Select your preferred time slot and complete the initial payment to secure your booking.</p>
                   </div>
                 </li>
                 <li className="relative flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0 z-10 text-brand-black font-bold text-[10px]">2</div>
+                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0 z-10 text-brand-black font-bold text-[10px] shadow-sm">2</div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wide text-white mb-1">Clinical Intake</h4>
-                    <p className="text-xs text-brand-tint/70 leading-relaxed font-body">You will receive an immediate link to complete your comprehensive baseline medical questionnaire.</p>
+                    <h4 className="text-sm font-bold uppercase tracking-wide text-brand-black mb-1">Clinical Intake</h4>
+                    <p className="text-xs text-brand-black/70 leading-relaxed font-body">You will receive an immediate link to complete your comprehensive baseline medical questionnaire.</p>
                   </div>
                 </li>
                 <li className="relative flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0 z-10 text-brand-black font-bold text-[10px]">3</div>
+                  <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0 z-10 text-brand-black font-bold text-[10px] shadow-sm">3</div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wide text-white mb-1">Consultation</h4>
-                    <p className="text-xs text-brand-tint/70 leading-relaxed font-body">Meet securely with Dr Stirzaker to map out your midlife hormonal recalibration strategy.</p>
+                    <h4 className="text-sm font-bold uppercase tracking-wide text-brand-black mb-1">Consultation</h4>
+                    <p className="text-xs text-brand-black/70 leading-relaxed font-body">Meet securely with Dr Stirzaker to map out your midlife hormonal recalibration strategy.</p>
                   </div>
                 </li>
               </ul>
             </div>
 
             {/* Micro-Trust Signals */}
-            <div className="border border-brand-gold/20 bg-white p-6 rounded-sm space-y-4">
+            <div className="border border-brand-gold/20 bg-white p-6 rounded-sm space-y-4 shadow-sm">
               <div className="flex items-start space-x-3">
                 <Globe className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
                 <p className="text-[11px] text-brand-black/70 leading-relaxed">

@@ -329,22 +329,22 @@ export default function HomePage() {
       </section>
 
       {/* 7. NEWSLETTER / GUIDE OPT-IN */}
-      <section className="bg-[#111111] text-white py-24 px-6 text-center border-b border-brand-gold/10">
+      <section className="bg-white py-24 px-6 text-center border-b border-brand-gold/10">
         <div className="max-w-3xl mx-auto">
-          <span className="text-[10px] font-bold tracking-[0.2em] text-brand-gold uppercase mb-4 block">Start Here. For Free.</span>
-          <h2 className="font-display text-4xl sm:text-5xl text-brand-tint mb-6 leading-tight">An Introductory Guide to Precision Midlife Health</h2>
-          <p className="font-body text-sm text-white/80 mb-10">Plus the <span className="italic text-brand-gold">Hormonal Intelligence Weekly</span>: a free letter published each week covering one evidence-based insight from inside the 3R Method™.</p>
+          <span className="text-[10px] font-bold tracking-[0.2em] text-brand-black/50 uppercase mb-4 block">Start Here. For Free.</span>
+          <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-6 leading-tight">An Introductory Guide to Precision Midlife Health</h2>
+          <p className="font-body text-sm text-brand-black/80 mb-10">Plus the <span className="italic text-brand-gold">Hormonal Intelligence Weekly</span>: a free letter published each week covering one evidence-based insight from inside the 3R Method™.</p>
 
           {isSubmitted ? (
-            <div className="bg-white/5 border border-brand-gold/30 p-6 rounded-sm inline-block">
-              <p className="font-display text-xl text-brand-gold font-medium">Registration Confirmed</p>
-              <p className="font-body text-xs text-white/70 mt-1">Your briefing is routing to your inbox.</p>
+            <div className="bg-brand-tint border border-brand-gold/30 p-6 rounded-sm inline-block">
+              <p className="font-display text-xl text-brand-black font-medium">Registration Confirmed</p>
+              <p className="font-body text-xs text-brand-black/70 mt-1">Your briefing is routing to your inbox.</p>
             </div>
           ) : (
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 justify-center max-w-2xl mx-auto">
-              <input type="text" placeholder="First name" required value={firstNameInput} onChange={(e) => setFirstNameInput(e.target.value)} className="w-full sm:w-1/3 bg-white/5 border border-white/20 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-brand-gold text-white placeholder:text-white/40 shadow-sm" />
-              <input type="email" placeholder="Email address" required value={emailInput} onChange={(e) => setEmailInput(e.target.value)} className="w-full sm:w-1/3 bg-white/5 border border-white/20 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-brand-gold text-white placeholder:text-white/40 shadow-sm" />
-              <button type="submit" className="w-full sm:w-auto bg-brand-gold text-brand-black font-bold uppercase tracking-widest text-[11px] px-8 py-4 rounded-full hover:bg-white hover:text-brand-black transition-all cursor-pointer whitespace-nowrap shadow-md">
+              <input type="text" placeholder="First name" required value={firstNameInput} onChange={(e) => setFirstNameInput(e.target.value)} className="w-full sm:w-1/3 bg-brand-tint border border-brand-black/10 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold text-brand-black placeholder:text-brand-black/40 shadow-sm" />
+              <input type="email" placeholder="Email address" required value={emailInput} onChange={(e) => setEmailInput(e.target.value)} className="w-full sm:w-1/3 bg-brand-tint border border-brand-black/10 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold text-brand-black placeholder:text-brand-black/40 shadow-sm" />
+              <button type="submit" className="w-full sm:w-auto bg-brand-black text-white font-bold uppercase tracking-widest text-[11px] px-8 py-4 rounded-full hover:bg-brand-gold hover:text-brand-black transition-all cursor-pointer whitespace-nowrap shadow-md">
                 Get Free Guide
               </button>
             </form>
@@ -353,7 +353,7 @@ export default function HomePage() {
       </section>
 
       {/* 8. ABOUT THE CLINICIAN */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-brand-tint">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-8">About Dr Stirzaker</h2>
@@ -367,7 +367,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="aspect-[4/3] w-full bg-brand-tint rounded-sm overflow-hidden shadow-md">
+            <div className="aspect-[4/3] w-full bg-white rounded-sm overflow-hidden shadow-md">
               <img src="/sus.avif" alt="Dr Vanessa Stirzaker Clinical Portrait" className="w-full h-full object-cover" />
             </div>
           </div>

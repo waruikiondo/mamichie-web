@@ -77,7 +77,7 @@ export default function TheBookPage() {
                 <button 
                   onClick={handlePurchase}
                   disabled={isProcessing}
-                  className="flex items-center justify-center space-x-2 bg-brand-gold text-brand-tint px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black transition-all shadow-md w-full sm:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="flex items-center justify-center space-x-2 bg-brand-gold text-brand-black px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-md w-full sm:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <CreditCard className="w-4 h-4" />
                   <span>{isProcessing ? "Connecting securely..." : "Purchase Directly • £14.99"}</span>
@@ -115,23 +115,23 @@ export default function TheBookPage() {
         </div>
       </div>
 
-      {/* Reader Email Capture Section */}
-      <section className="bg-brand-black text-brand-tint py-20 border-t border-brand-gold/20">
+      {/* Reader Email Capture Section (UPDATED TO LIGHT THEME) */}
+      <section className="bg-white py-24 border-t border-brand-gold/10">
         <div className="max-w-3xl mx-auto px-6 text-center">
           
           <Mail className="w-8 h-8 text-brand-gold mx-auto mb-6" />
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-brand-tint">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-brand-black">
             Already read the book?
           </h2>
           
-          <p className="font-body text-brand-tint/80 text-sm leading-relaxed mt-4 mb-10 max-w-xl mx-auto">
+          <p className="font-body text-brand-black/80 text-sm leading-relaxed mt-4 mb-10 max-w-xl mx-auto">
             Take the next step with the free 3R Method™ Starter Guide: a clinical companion to the book, written by Dr Stirzaker and delivered directly to your inbox.
           </p>
 
           {isSubmitted ? (
-            <div className="bg-brand-gold/10 border border-brand-gold/30 p-6 rounded-sm max-w-md mx-auto">
+            <div className="bg-brand-tint border border-brand-gold/20 p-6 rounded-sm max-w-md mx-auto">
               <p className="font-display text-xl text-brand-gold font-bold">Guide Requested</p>
-              <p className="font-body text-xs text-brand-tint/70 mt-1">
+              <p className="font-body text-xs text-brand-black/70 mt-1">
                 Your clinical companion is routing to your inbox.
               </p>
             </div>
@@ -143,11 +143,11 @@ export default function TheBookPage() {
                 required
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
-                className="w-full bg-white/5 border border-brand-tint/20 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-brand-gold text-brand-tint placeholder:text-brand-tint/40 text-center"
+                className="w-full bg-brand-tint border border-brand-gold/20 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-brand-gold text-brand-black placeholder:text-brand-black/40 text-center"
               />
               <button 
                 type="submit"
-                className="w-full bg-brand-gold text-brand-black font-bold uppercase tracking-widest text-xs py-4 rounded-sm hover:bg-brand-tint hover:text-brand-black transition-all cursor-pointer shadow-md"
+                className="w-full bg-brand-gold text-brand-black font-bold uppercase tracking-widest text-xs py-4 rounded-sm hover:bg-brand-black hover:text-white transition-all cursor-pointer shadow-md"
               >
                 Send Me the Starter Guide
               </button>

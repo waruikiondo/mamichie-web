@@ -65,12 +65,12 @@ export default function ResidencyPage() {
         </div>
       </section>
 
-      {/* 3. THE 3 PHASES (Deep Dive from Section 5 of brief) */}
-      <section className="py-24 px-6 bg-brand-black text-brand-tint border-y border-brand-gold/20">
+      {/* 3. THE 3 PHASES (UPDATED TO LIGHT THEME) */}
+      <section className="py-24 px-6 bg-white border-y border-brand-gold/10">
         <div className="max-w-5xl mx-auto">
           
           <div className="text-center mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-tint">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-black">
               The Clinical Architecture
             </h2>
             <p className="text-[10px] font-bold tracking-widest uppercase text-brand-gold mt-4">
@@ -81,28 +81,28 @@ export default function ResidencyPage() {
           <div className="space-y-12">
             
             {/* Phase 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-brand-gold/20 pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-brand-gold/10 pb-12">
               <div className="md:col-span-3 text-brand-gold font-display text-5xl font-bold">
                 01.
               </div>
               <div className="md:col-span-9">
-                <h3 className="font-display text-3xl font-bold uppercase text-brand-tint mb-2">Reset</h3>
+                <h3 className="font-display text-3xl font-bold uppercase text-brand-black mb-2">Reset</h3>
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mb-4">Targeted Clinical Audit</p>
-                <p className="text-sm text-brand-tint/80 leading-relaxed font-body text-justify">
+                <p className="text-sm text-brand-black/80 leading-relaxed font-body text-justify">
                   The first phase establishes your hormonal baseline. We assess the full hormonal network including oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin, alongside metabolic function, sleep architecture, inflammatory load and nutrient status. This is not a general health check. It is a targeted clinical audit designed to reveal what is driving your symptoms beneath the surface.
                 </p>
               </div>
             </div>
 
             {/* Phase 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-brand-gold/20 pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-brand-gold/10 pb-12">
               <div className="md:col-span-3 text-brand-gold font-display text-5xl font-bold">
                 02.
               </div>
               <div className="md:col-span-9">
-                <h3 className="font-display text-3xl font-bold uppercase text-brand-tint mb-2">Rebalance</h3>
+                <h3 className="font-display text-3xl font-bold uppercase text-brand-black mb-2">Rebalance</h3>
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mb-4">Precision Intervention Protocols</p>
-                <p className="text-sm text-brand-tint/80 leading-relaxed font-body text-justify">
+                <p className="text-sm text-brand-black/80 leading-relaxed font-body text-justify">
                   Armed with clinical data, we build your precision protocol. This may include hormonal support, targeted nutrition and movement programming, sleep intervention, nervous system regulation and supplementation. Every element is evidence-based and personalised to your physiology, not a generic midlife template.
                 </p>
               </div>
@@ -114,9 +114,9 @@ export default function ResidencyPage() {
                 03.
               </div>
               <div className="md:col-span-9">
-                <h3 className="font-display text-3xl font-bold uppercase text-brand-tint mb-2">Reclaim</h3>
+                <h3 className="font-display text-3xl font-bold uppercase text-brand-black mb-2">Reclaim</h3>
                 <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mb-4">Sustainable Autonomy</p>
-                <p className="text-sm text-brand-tint/80 leading-relaxed font-body text-justify">
+                <p className="text-sm text-brand-black/80 leading-relaxed font-body text-justify">
                   The final phase is about sustainability. We provide the education, tools and clinical oversight to ensure you maintain your gains, understand your body&apos;s signals and approach the decades ahead from a position of physiological strength. Reclaim is not a finishing line. It is a new standard.
                 </p>
               </div>
@@ -126,8 +126,8 @@ export default function ResidencyPage() {
         </div>
       </section>
 
-      {/* 4. INCLUSIONS & DELIVERABLES */}
-      <section className="py-24 px-6 bg-white">
+      {/* 4. INCLUSIONS & DELIVERABLES (UPDATED TO ALTERNATING BG) */}
+      <section className="py-24 px-6 bg-brand-tint">
         <div className="max-w-4xl mx-auto">
           
           <div className="text-center mb-16">
@@ -137,7 +137,7 @@ export default function ResidencyPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-brand-tint/20">
+            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-white shadow-sm hover:-translate-y-1 transition-transform">
               <Activity className="w-6 h-6 text-brand-gold shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-sm uppercase tracking-wide text-brand-black mb-1">Advanced Diagnostics</h4>
@@ -145,7 +145,7 @@ export default function ResidencyPage() {
               </div>
             </div>
             
-            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-brand-tint/20">
+            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-white shadow-sm hover:-translate-y-1 transition-transform">
               <Calendar className="w-6 h-6 text-brand-gold shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-sm uppercase tracking-wide text-brand-black mb-1">Ongoing Clinical Strategy</h4>
@@ -153,7 +153,7 @@ export default function ResidencyPage() {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-brand-tint/20">
+            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-white shadow-sm hover:-translate-y-1 transition-transform">
               <Zap className="w-6 h-6 text-brand-gold shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-sm uppercase tracking-wide text-brand-black mb-1">Objective Monitoring</h4>
@@ -161,7 +161,7 @@ export default function ResidencyPage() {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-brand-tint/20">
+            <div className="flex items-start space-x-4 border border-brand-gold/20 p-6 rounded-sm bg-white shadow-sm hover:-translate-y-1 transition-transform">
               <ShieldCheck className="w-6 h-6 text-brand-gold shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold text-sm uppercase tracking-wide text-brand-black mb-1">Direct Clinical Access</h4>
@@ -174,7 +174,7 @@ export default function ResidencyPage() {
       </section>
 
       {/* 5. APPLICATION CTA */}
-      <section className="py-24 px-6 bg-brand-tint border-t border-brand-gold/10">
+      <section className="py-24 px-6 bg-white border-t border-brand-gold/10">
         <div className="max-w-3xl mx-auto text-center">
           
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-brand-black mb-6">

@@ -97,16 +97,16 @@ export default function ConsultationsPage() {
         </div>
       </section>
 
-      {/* 4. INVESTMENT & SCHEDULING CTA */}
-      <section className="py-24 px-6 bg-brand-black text-brand-tint relative overflow-hidden">
+      {/* 4. INVESTMENT & SCHEDULING CTA (UPDATED TO LIGHT THEME) */}
+      <section className="py-24 px-6 bg-brand-tint border-t border-brand-gold/10 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-brand-tint mb-8">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-brand-black mb-8">
             Secure Your Appointment
           </h2>
           
-          <div className="bg-white/5 border border-brand-gold/30 p-8 sm:p-12 rounded-sm max-w-2xl mx-auto backdrop-blur-sm">
-            <ul className="space-y-4 text-sm text-brand-tint/80 font-medium text-left max-w-md mx-auto mb-10">
+          <div className="bg-white border border-brand-gold/20 p-8 sm:p-12 rounded-sm max-w-2xl mx-auto shadow-sm">
+            <ul className="space-y-4 text-sm text-brand-black/80 font-medium text-left max-w-md mx-auto mb-10">
               <li className="flex items-start space-x-3">
                 <CheckCircle className="w-5 h-5 text-brand-gold shrink-0" />
                 <span>60-minute secure virtual consultation</span>
@@ -127,13 +127,13 @@ export default function ConsultationsPage() {
 
             <Link 
               href="/book-now" 
-              className="inline-flex items-center justify-center space-x-2 bg-brand-gold text-brand-black px-10 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-tint transition-all shadow-md w-full sm:w-auto"
+              className="inline-flex items-center justify-center space-x-2 bg-brand-gold text-brand-black px-10 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-white transition-all shadow-md w-full sm:w-auto"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Your Consultation</span>
             </Link>
             
-            <p className="text-[10px] text-brand-tint/40 font-body tracking-wide mt-6">
+            <p className="text-[10px] text-brand-black/50 font-body tracking-wide mt-6">
               Consultation availability is limited to ensure clinical excellence. All bookings are subject to our standard clinical terms.
             </p>
           </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Award, ShieldCheck, ChevronRight, Quote } from "lucide-react";
@@ -130,11 +132,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. PHILOSOPHY PULL-QUOTE (Section 8.4) */}
-      <section className="py-24 px-6 bg-brand-black text-brand-tint relative overflow-hidden">
+      {/* 4. PHILOSOPHY PULL-QUOTE (Section 8.4) - UPDATED TO LIGHT THEME */}
+      <section className="py-24 px-6 bg-brand-tint text-brand-black relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <Quote className="w-12 h-12 text-brand-gold/50 mx-auto mb-8" />
-          <blockquote className="font-display text-3xl sm:text-4xl lg:text-5xl leading-tight font-medium text-brand-tint max-w-3xl mx-auto">
+          <blockquote className="font-display text-3xl sm:text-4xl lg:text-5xl leading-tight font-medium text-brand-black max-w-3xl mx-auto">
             &quot;We are not managing a phase. We are rebuilding a foundation. The women I work with do not need more willpower. They need more precision.&quot;
           </blockquote>
           <div className="mt-12 flex flex-col items-center justify-center">
@@ -142,7 +144,7 @@ export default function AboutPage() {
             <cite className="font-body text-xs sm:text-sm uppercase tracking-[0.2em] font-bold text-brand-gold not-italic">
               Dr Vanessa Stirzaker
             </cite>
-            <span className="font-body text-[10px] uppercase tracking-widest text-brand-tint/60 mt-2">
+            <span className="font-body text-[10px] uppercase tracking-widest text-brand-black/60 mt-2">
               Founder, Mamichie Healthcare®
             </span>
           </div>
