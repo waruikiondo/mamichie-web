@@ -51,6 +51,7 @@ export default function HomePage() {
   const [emailInput, setEmailInput] = useState("");
   const [firstNameInput, setFirstNameInput] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isProcessingPurchase, setIsProcessingPurchase] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,6 +60,12 @@ export default function HomePage() {
       setEmailInput("");
       setFirstNameInput("");
     }
+  };
+
+  const handlePurchase = () => {
+    setIsProcessingPurchase(true);
+    // This instantly redirects the user to your Stripe Test checkout
+    window.location.href = "https://buy.stripe.com/test_fZu4gB9cA78P4Ph4KT2oE00";
   };
 
   return (
@@ -281,13 +288,14 @@ export default function HomePage() {
             <p className="font-body text-sm text-brand-black/80 leading-relaxed mb-8">
               Written for the woman who has been told her results are normal but knows something is not right. Rooted in precision medicine principles, this book takes you through the three phases of the 3R Method™: Reset, Rebalance and Reclaim. Each phase is grounded in clinical evidence and designed to be immediately actionable.
             </p>
-            <div className="flex items-center gap-4">
-              <a 
-                href="#" 
-                className="bg-brand-gold text-brand-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-sm"
+            <div className="flex flex-wrap items-center gap-4">
+              <button 
+                onClick={handlePurchase}
+                disabled={isProcessingPurchase}
+                className="bg-brand-gold text-brand-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Buy Now
-              </a>
+                {isProcessingPurchase ? "Connecting..." : "Purchase Directly • £14.99"}
+              </button>
               <Link 
                 href="/the-book" 
                 className="text-brand-black hover:text-brand-gold text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-1"
@@ -362,7 +370,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-8">
-              About Dr. Stirzaker
+              About Dr Stirzaker
             </h2>
             <div className="prose prose-brand text-brand-black/80 text-sm leading-relaxed mb-8 text-justify">
               <p>
