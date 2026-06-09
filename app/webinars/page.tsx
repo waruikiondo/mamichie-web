@@ -9,7 +9,8 @@ import {
   MonitorPlay, 
   MessageSquare, 
   ArrowRight,
-  Clock
+  Clock,
+  Activity // <--- Added Activity here
 } from "lucide-react";
 
 export default function WebinarsPage() {
