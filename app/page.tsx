@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { 
   ArrowRight, 
@@ -10,6 +10,9 @@ import {
 } from "lucide-react";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 
+// MOCK DATA: This powers the beautifully styled fallback carousel.
+// Once you register with a live feed provider (e.g. Elfsight or EmbedSocial), 
+// you will replace this section with their single script tag.
 const socialFeed = [
   {
     id: 1,
@@ -42,6 +45,14 @@ const socialFeed = [
     title: "Special clinical briefing: Answering your questions on longevity and sleep architecture.",
     url: "https://www.facebook.com/share/1LUtckbaTg/?mibextid=wwXIfr",
     buttonText: "VIEW ON FACEBOOK"
+  },
+  {
+    id: 5,
+    platform: "Instagram",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
+    title: "Why continuous glucose monitoring can be a powerful tool in midlife metabolic tracking.",
+    url: "https://www.instagram.com/mamichie_healthcare",
+    buttonText: "VIEW ON INSTAGRAM"
   }
 ];
 
@@ -50,6 +61,9 @@ export default function HomePage() {
   const [firstNameInput, setFirstNameInput] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isProcessingPurchase, setIsProcessingPurchase] = useState(false);
+  
+  // Carousel Scroll Reference
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,6 +78,13 @@ export default function HomePage() {
     setIsProcessingPurchase(true);
     // This instantly redirects the user to your Stripe Test checkout
     window.location.href = "https://buy.stripe.com/test_fZu4gB9cA78P4Ph4KT2oE00";
+  };
+
+  const scrollCarousel = (direction: "left" | "right") => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === "left" ? -400 : 400;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
   };
 
   return (
@@ -108,7 +129,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. MISSION SECTION (Added from Brief Section 3) */}
+      {/* 2. MISSION SECTION */}
       <section className="py-24 bg-white border-b border-brand-gold/10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-10">
@@ -122,30 +143,122 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. TRUST PILLARS (Added from Brief Section 4) */}
-      <section className="py-24 bg-brand-tint border-b border-brand-gold/10">
+      {/* 3. SOCIAL MEDIA HUB (UPDATED TO LIVE CAROUSEL) */}
+      <section className="py-24 bg-brand-tint border-b border-brand-gold/10 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-10 gap-6">
+            <div>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-brand-black/50 uppercase mb-3 block">
+                Connect & Learn
+              </span>
+              <h2 className="font-display text-4xl text-brand-black">Clinical Insights Feed</h2>
+            </div>
+            
+            {/* Carousel Navigation Arrows */}
+            <div className="flex space-x-2">
+              <button 
+                onClick={() => scrollCarousel("left")}
+                className="p-3 bg-white border border-brand-gold/30 rounded-full text-brand-black hover:bg-brand-gold hover:text-white transition-all shadow-sm cursor-pointer"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={() => scrollCarousel("right")}
+                className="p-3 bg-white border border-brand-gold/30 rounded-full text-brand-black hover:bg-brand-gold hover:text-white transition-all shadow-sm cursor-pointer"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* DEVELOPER NOTE FOR LIVE SYNC:
+            To make this feed automatically update with Dr Stirzaker's latest posts,
+            create an account at Elfsight.com or EmbedSocial.com, link the Instagram/Facebook,
+            and paste their provided <script> tag into a component here. 
+            Until then, this beautifully styled fallback carousel will display.
+          */}
+          <div className="relative -mx-6 px-6">
+            <div 
+              ref={carouselRef}
+              className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 hide-scrollbar"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {/* Fallback Carousel Items */}
+              {socialFeed.map((post) => (
+                <a 
+                  key={post.id} 
+                  href={post.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative rounded-md overflow-hidden bg-[#0A0A0A] aspect-[3/4] w-[280px] sm:w-[320px] flex-shrink-0 snap-start flex flex-col cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-700" 
+                  />
+                  
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full flex items-center space-x-1.5 z-20">
+                    {post.platform === "Instagram" ? (
+                      <FaInstagram className="w-3 h-3 text-white" />
+                    ) : (
+                      <FaFacebook className="w-3 h-3 text-white" />
+                    )}
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-white">
+                      {post.platform}
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+                  
+                  <div className="absolute bottom-0 w-full p-6 flex flex-col items-center justify-end z-20 text-center">
+                    <h3 className="font-display text-xl text-white mb-6 leading-snug line-clamp-4">
+                      {post.title}
+                    </h3>
+                    <span className="bg-[#0056D2] group-hover:bg-white group-hover:text-[#0056D2] text-white px-5 py-2.5 rounded-full text-[9px] font-bold tracking-widest uppercase transition-colors">
+                      {post.buttonText}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* Helper CSS to hide the scrollbar for webkit browsers */}
+        <style dangerouslySetInnerHTML={{__html: `
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        `}} />
+      </section>
+
+      {/* 4. TRUST PILLARS */}
+      <section className="py-24 bg-white border-b border-brand-gold/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl sm:text-5xl text-brand-black">Why women trust Mamichie Healthcare®</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-             <div className="bg-white p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Clinical Authority. Personal Precision.</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-justify">Your care is led by Dr Vanessa Stirzaker: NHS and private clinician, internationally accredited Menopause Specialist and founder of the 3R Method™. With clinical experience spanning primary care and secondary care intensive medicine, Dr Stirzaker brings the rigour of evidence-based clinical thinking to every consultation, assessment and programme.</p>
              </div>
-             <div className="bg-white p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">The Full Hormonal Picture</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-justify">We do not treat oestrogen in isolation. The 3R Method™ examines the full hormonal architecture of midlife: oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin. Each plays a role. Each interacts with the others. Lasting change requires understanding the whole system, not silencing its loudest signal.</p>
              </div>
-             <div className="bg-white p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Root Cause, Not Symptom Management</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-justify">The question is never simply &apos;what are your symptoms?&apos; It is &apos;what is driving them?&apos; Our clinical approach identifies upstream causes: whether metabolic, hormonal, structural or lifestyle-related, and builds your Reset protocol around those findings. Precision beats willpower, every time.</p>
              </div>
-             <div className="bg-white p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Global Access. No Compromises.</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-justify">Your postcode should not determine the quality of your midlife care. Mamichie Healthcare® operates as a fully virtual practice, serving women across the UK, Europe and internationally. Expert-led consultations, personalised protocols and ongoing support are available wherever you are.</p>
              </div>
-             <div className="bg-white p-8 border border-brand-gold/20 rounded-sm shadow-sm md:col-span-2 lg:col-span-1 transition-transform hover:-translate-y-1 duration-300">
+             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm md:col-span-2 lg:col-span-1 transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Precision Informed by Data</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-justify">We use objective markers to guide and measure progress: metabolic panels, hormonal profiles, movement benchmarks and, where relevant, tools such as continuous glucose monitoring and body composition assessment. This is not intuition. It is clinical precision, applied with care.</p>
              </div>
@@ -153,7 +266,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. THE 3R METHOD EXPLAINER */}
+      {/* 5. THE 3R METHOD EXPLAINER */}
       <section className="bg-white text-brand-black py-32 border-b border-brand-gold/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -187,7 +300,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. THE BOOK PROMO */}
+      {/* 6. THE BOOK PROMO */}
       <section className="py-24 bg-brand-tint border-b border-brand-gold/10">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
@@ -215,23 +328,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. NEWSLETTER / GUIDE OPT-IN */}
-      <section className="bg-white py-24 px-6 text-center border-b border-brand-gold/10">
+      {/* 7. NEWSLETTER / GUIDE OPT-IN */}
+      <section className="bg-[#111111] text-white py-24 px-6 text-center border-b border-brand-gold/10">
         <div className="max-w-3xl mx-auto">
-          <span className="text-[10px] font-bold tracking-[0.2em] text-brand-black uppercase mb-4 block">Start Here. For Free.</span>
-          <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-6 leading-tight">An Introductory Guide to Precision Midlife Health</h2>
-          <p className="font-body text-sm text-brand-black/80 mb-10">Plus the <span className="italic">Hormonal Intelligence Weekly</span>: a free letter published each week covering one evidence-based insight from inside the 3R Method™.</p>
+          <span className="text-[10px] font-bold tracking-[0.2em] text-brand-gold uppercase mb-4 block">Start Here. For Free.</span>
+          <h2 className="font-display text-4xl sm:text-5xl text-brand-tint mb-6 leading-tight">An Introductory Guide to Precision Midlife Health</h2>
+          <p className="font-body text-sm text-white/80 mb-10">Plus the <span className="italic text-brand-gold">Hormonal Intelligence Weekly</span>: a free letter published each week covering one evidence-based insight from inside the 3R Method™.</p>
 
           {isSubmitted ? (
-            <div className="bg-brand-tint border border-brand-gold/30 p-6 rounded-sm inline-block">
-              <p className="font-display text-xl text-brand-black font-medium">Registration Confirmed</p>
-              <p className="font-body text-xs text-brand-black/70 mt-1">Your briefing is routing to your inbox.</p>
+            <div className="bg-white/5 border border-brand-gold/30 p-6 rounded-sm inline-block">
+              <p className="font-display text-xl text-brand-gold font-medium">Registration Confirmed</p>
+              <p className="font-body text-xs text-white/70 mt-1">Your briefing is routing to your inbox.</p>
             </div>
           ) : (
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 justify-center max-w-2xl mx-auto">
-              <input type="text" placeholder="First name" required value={firstNameInput} onChange={(e) => setFirstNameInput(e.target.value)} className="w-full sm:w-1/3 bg-brand-tint border border-brand-black/10 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold text-brand-black placeholder:text-brand-black/40 shadow-sm" />
-              <input type="email" placeholder="Email address" required value={emailInput} onChange={(e) => setEmailInput(e.target.value)} className="w-full sm:w-1/3 bg-brand-tint border border-brand-black/10 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold text-brand-black placeholder:text-brand-black/40 shadow-sm" />
-              <button type="submit" className="w-full sm:w-auto bg-brand-black text-white font-bold uppercase tracking-widest text-[11px] px-8 py-4 rounded-full hover:bg-brand-gold hover:text-brand-black transition-all cursor-pointer whitespace-nowrap shadow-md">
+              <input type="text" placeholder="First name" required value={firstNameInput} onChange={(e) => setFirstNameInput(e.target.value)} className="w-full sm:w-1/3 bg-white/5 border border-white/20 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-brand-gold text-white placeholder:text-white/40 shadow-sm" />
+              <input type="email" placeholder="Email address" required value={emailInput} onChange={(e) => setEmailInput(e.target.value)} className="w-full sm:w-1/3 bg-white/5 border border-white/20 rounded-full px-6 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-brand-gold text-white placeholder:text-white/40 shadow-sm" />
+              <button type="submit" className="w-full sm:w-auto bg-brand-gold text-brand-black font-bold uppercase tracking-widest text-[11px] px-8 py-4 rounded-full hover:bg-white hover:text-brand-black transition-all cursor-pointer whitespace-nowrap shadow-md">
                 Get Free Guide
               </button>
             </form>
@@ -239,8 +352,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. ABOUT THE CLINICIAN */}
-      <section className="py-24 bg-brand-tint">
+      {/* 8. ABOUT THE CLINICIAN */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-8">About Dr Stirzaker</h2>
@@ -254,7 +367,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="aspect-[4/3] w-full bg-white rounded-sm overflow-hidden shadow-md">
+            <div className="aspect-[4/3] w-full bg-brand-tint rounded-sm overflow-hidden shadow-md">
               <img src="/sus.avif" alt="Dr Vanessa Stirzaker Clinical Portrait" className="w-full h-full object-cover" />
             </div>
           </div>
