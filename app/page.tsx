@@ -6,7 +6,8 @@ import {
   ArrowRight, 
   Sparkles,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ShoppingCart
 } from "lucide-react";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 
@@ -302,18 +303,34 @@ export default function HomePage() {
             <span className="text-[10px] font-bold tracking-[0.2em] text-brand-black uppercase mb-4 block">#1 Amazon Bestseller</span>
             <h2 className="font-display text-4xl sm:text-5xl text-brand-black leading-tight mb-6">The 3R Method™: <br />The Book</h2>
             <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left mb-8">Written for the woman who has been told her results are normal but knows something is not right. Rooted in precision medicine principles, this book takes you through the three phases of the 3R Method™: Reset, Rebalance and Reclaim. Each phase is grounded in clinical evidence and designed to be immediately actionable.</p>
-            <div className="flex flex-wrap items-center gap-4">
+            
+            {/* UPDATED: DUAL PURCHASE BUTTONS (STRIPE & AMAZON) */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-4 mb-4">
               <button 
                 onClick={handlePurchase}
                 disabled={isProcessingPurchase}
-                className="bg-brand-gold text-brand-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-brand-gold text-brand-black px-8 py-3.5 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {isProcessingPurchase ? "Connecting..." : "Purchase Directly • £14.99"}
+                {isProcessingPurchase ? "Connecting..." : "Buy Direct • £14.99"}
               </button>
-              <Link href="/the-book" className="text-brand-black hover:text-brand-gold text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-1">
+              
+              <a 
+                href="https://www.amazon.co.uk/dp/B0FRSY1H4P?ref=cm_sw_r_ffobk_cp_ud_dp_8P31P5TCN28A2GZ8RKQF&ref_=cm_sw_r_ffobk_cp_ud_dp_8P31P5TCN28A2GZ8RKQF&social_share=cm_sw_r_ffobk_cp_ud_dp_8P31P5TCN28A2GZ8RKQF&bestFormat=true" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-brand-black text-brand-tint px-8 py-3.5 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-brand-gold hover:text-brand-black transition-all shadow-sm"
+              >
+                <ShoppingCart className="w-4 h-4 shrink-0" />
+                <span>Buy on Amazon</span>
+              </a>
+            </div>
+
+            <div>
+              <Link href="/the-book" className="text-brand-black hover:text-brand-gold text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center sm:justify-start gap-1">
                 Learn More <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
+            
           </div>
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative w-64 sm:w-80 shadow-2xl">
