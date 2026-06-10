@@ -12,13 +12,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
         {/* Brand Identity Logo */}
-        <Link href="/" className="flex flex-col tracking-wider group">
-          <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-brand-black">
-            MAMICHIE <span className="text-brand-gold font-light">HEALTHCARE®</span>
-          </span>
-          <span className="text-[9px] font-body tracking-[0.25em] text-brand-black/60 uppercase -mt-1 transition-colors group-hover:text-brand-gold">
-            Precision Beats Willpower.™
-          </span>
+        <Link href="/" className="flex items-center group">
+          <img 
+            src="/logo.avif" 
+            alt="Mamichie Healthcare Logo" 
+            className="h-10 sm:h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80" 
+          />
         </Link>
 
         {/* Desktop Navigation Structure */}

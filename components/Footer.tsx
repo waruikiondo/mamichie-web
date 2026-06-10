@@ -10,9 +10,12 @@ export default function Footer() {
         {/* Top Tagline Area */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-brand-gold/20 pb-12 mb-12">
           <div className="flex flex-col">
-            <span className="font-display text-2xl md:text-3xl font-medium tracking-wide text-brand-black">
-              MAMICHIE <span className="text-brand-gold">HEALTHCARE®</span>
-            </span>
+            {/* NEW LOGO IMAGE INSERTED HERE */}
+            <img 
+              src="/logo.avif" 
+              alt="Mamichie Healthcare Logo" 
+              className="h-8 md:h-12 w-auto object-contain mb-2" 
+            />
             <span className="text-[10px] uppercase tracking-[0.25em] text-brand-gold font-bold mt-2">
               Precision Beats Willpower.™
             </span>

@@ -23,6 +23,12 @@ export const metadata: Metadata = {
   title: "Mamichie Healthcare® | The 3R Method™ for Midlife Women | Menopause Specialist",
   description: "Precision health for midlife women. Dr Vanessa Stirzaker applies root-cause clinical medicine through the 3R Method™ to Reset, Rebalance and Reclaim hormonal health. Virtual consultations worldwide.",
   
+  // BRAND ICON / FAVICON ADDED HERE
+  icons: {
+    icon: '/logo.avif', 
+    apple: '/logo.avif', 
+  },
+
   // 2. Open Graph for Facebook, LinkedIn, WhatsApp & iMessage
   openGraph: {
     title: "Mamichie Healthcare® | The 3R Method™ for Midlife Women",
