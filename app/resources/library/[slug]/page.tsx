@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
@@ -94,7 +92,7 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
           <strong className="block text-[10px] font-bold tracking-widest uppercase text-brand-gold not-italic mb-1">
             Clinical Overview
           </strong>
-          "{article.summary}"
+          &quot;{article.summary}&quot;
         </div>
 
         {/* Core Markdown Text Body Layer */}
