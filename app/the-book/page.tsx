@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronRight, CreditCard, Calendar, Mail, ShieldCheck } from "lucide-react";
+import { ChevronRight, CreditCard, Calendar, Mail, ShieldCheck, ShoppingCart } from "lucide-react";
 
 export default function TheBookPage() {
   const [emailInput, setEmailInput] = useState("");
@@ -57,7 +57,7 @@ export default function TheBookPage() {
               <hr className="w-16 h-[1px] bg-brand-gold border-none" />
 
               {/* Body Copy */}
-              <div className="prose prose-brand text-brand-black/80 text-sm leading-relaxed space-y-6 text-justify">
+              <div className="prose prose-brand text-brand-black/80 text-sm leading-relaxed space-y-6 text-left">
                 <p>
                   The 3R Method™ began as a clinical framework built inside Dr Vanessa Stirzaker&apos;s practice. This book brings that framework to women worldwide.
                 </p>
@@ -73,24 +73,39 @@ export default function TheBookPage() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button 
-                  onClick={handlePurchase}
-                  disabled={isProcessing}
-                  className="flex items-center justify-center space-x-2 bg-brand-gold text-brand-black px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-md w-full sm:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  <CreditCard className="w-4 h-4" />
-                  <span>{isProcessing ? "Connecting securely..." : "Purchase Directly • £14.99"}</span>
-                </button>
+              <div className="flex flex-col space-y-4 pt-4">
                 
-                {/* Secondary CTA is strictly critical for warm leads */}
+                {/* Primary Purchase Options Row */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button 
+                    onClick={handlePurchase}
+                    disabled={isProcessing}
+                    className="flex-1 flex items-center justify-center space-x-2 bg-brand-gold text-brand-black px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    <CreditCard className="w-4 h-4 shrink-0" />
+                    <span>{isProcessing ? "Connecting..." : "Buy Direct • £14.99"}</span>
+                  </button>
+
+                  <a 
+                    href="https://www.amazon.co.uk/dp/B0FRSY1H4P?ref=cm_sw_r_ffobk_cp_ud_dp_8P31P5TCN28A2GZ8RKQF&ref_=cm_sw_r_ffobk_cp_ud_dp_8P31P5TCN28A2GZ8RKQF&social_share=cm_sw_r_ffobk_cp_ud_dp_8P31P5TCN28A2GZ8RKQF&bestFormat=true" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center space-x-2 bg-brand-black text-brand-tint px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-gold hover:text-brand-black transition-all shadow-md"
+                  >
+                    <ShoppingCart className="w-4 h-4 shrink-0" />
+                    <span>Buy on Amazon</span>
+                  </a>
+                </div>
+                
+                {/* Secondary CTA strictly critical for warm leads */}
                 <Link 
                   href="/consultations" 
-                  className="flex items-center justify-center space-x-2 border border-brand-black text-brand-black px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all w-full sm:w-auto"
+                  className="flex items-center justify-center space-x-2 border border-brand-black/20 text-brand-black px-8 py-4 rounded-sm text-xs font-bold tracking-widest uppercase hover:border-brand-gold hover:text-brand-gold transition-all w-full"
                 >
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-4 h-4 shrink-0" />
                   <span>Book a Consultation</span>
                 </Link>
+
               </div>
               
               {/* Trust Micro-copy for direct purchasing */}
