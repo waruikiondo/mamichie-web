@@ -4,9 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { 
   ChevronRight, 
-  Activity, 
-  Microscope, 
-  RefreshCcw, 
   ArrowRight,
   ShieldCheck
 } from "lucide-react";
@@ -47,7 +44,7 @@ export default function The3RMethodPage() {
           <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-brand-black mb-8">
             Built from clinical practice. <br className="hidden sm:block" />Not wellness theory.
           </h2>
-          <div className="prose prose-brand text-brand-black/80 text-sm leading-relaxed text-left sm:text-center mx-auto space-y-6">
+          <div className="prose prose-brand text-brand-black/80 text-sm leading-relaxed text-left max-w-3xl mx-auto space-y-6">
             <p>
               After years of observing the gap between what conventional medicine offers women in perimenopause and what their bodies actually need, Dr Vanessa Stirzaker built a structured clinical framework that addresses midlife physiology at the root.
             </p>
@@ -58,11 +55,11 @@ export default function The3RMethodPage() {
         </div>
       </section>
 
-      {/* 3. THE 3 PHASES DEEP DIVE (BULLETPROOF DESKTOP/MOBILE LAYOUT) */}
-      <section className="py-24 px-6 bg-white border-y border-brand-gold/10 overflow-hidden">
+      {/* 3. THE 3 PHASES DEEP DIVE (UPDATED TO CLEAN CLINICAL GRID) */}
+      <section className="py-24 px-6 bg-white border-y border-brand-gold/10">
         <div className="max-w-5xl mx-auto">
           
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-black">
               The Three Phases of Recalibration
             </h2>
@@ -71,101 +68,47 @@ export default function The3RMethodPage() {
             </p>
           </div>
 
-          {/* Timeline Structure */}
-          <div className="relative py-8">
-            {/* The Central/Left Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-gold/50 via-brand-gold/20 to-transparent md:-translate-x-1/2 z-0"></div>
-
-            {/* PHASE 1: Reset */}
-            <div className="relative flex flex-col md:flex-row items-center justify-between w-full mb-16 md:mb-24 group">
-              
-              {/* Mobile Title (Shows only on mobile) */}
-              <div className="md:hidden pl-24 w-full mb-4">
-                <h3 className="font-display text-2xl font-bold uppercase text-brand-black">Reset</h3>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mt-1">Phase 01: Targeted Clinical Audit</p>
+          <div className="space-y-12">
+            
+            {/* Phase 1 */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-brand-gold/10 pb-12">
+              <div className="md:col-span-3 text-brand-gold font-display text-5xl font-bold">
+                01.
               </div>
-
-              {/* Desktop Left Col (Title & Icon) */}
-              <div className="hidden md:flex flex-col items-end w-5/12 text-right pr-12">
-                <Microscope className="w-12 h-12 text-brand-gold mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                <h3 className="font-display text-3xl font-bold uppercase text-brand-black">Reset</h3>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mt-2">Phase 01: Targeted Clinical Audit</p>
-              </div>
-
-              {/* The Marker */}
-              <div className="absolute left-8 md:left-1/2 top-4 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 rounded-full bg-white border-2 border-brand-gold flex items-center justify-center z-10 shadow-sm transition-transform duration-300 group-hover:scale-110">
-                <span className="text-brand-black font-display font-bold text-xl">1</span>
-              </div>
-
-              {/* Text Box */}
-              <div className="w-full md:w-5/12 pl-24 md:pl-12">
-                <div className="bg-brand-tint/40 p-6 md:p-8 rounded-sm border border-brand-gold/20 shadow-sm">
-                  <p className="text-sm text-brand-black/80 leading-relaxed font-body">
-                    The first phase establishes your hormonal baseline. We assess the full hormonal network including oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin, alongside metabolic function, sleep architecture, inflammatory load and nutrient status. This is not a general health check. It is a targeted clinical audit designed to reveal what is driving your symptoms beneath the surface.
-                  </p>
-                </div>
+              <div className="md:col-span-9">
+                <h3 className="font-display text-3xl font-bold uppercase text-brand-black mb-2">Reset</h3>
+                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mb-4">Phase 01: Targeted Clinical Audit</p>
+                <p className="text-sm text-brand-black/80 leading-relaxed font-body text-left">
+                  The first phase establishes your hormonal baseline. We assess the full hormonal network including oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin, alongside metabolic function, sleep architecture, inflammatory load and nutrient status. This is not a general health check. It is a targeted clinical audit designed to reveal what is driving your symptoms beneath the surface.
+                </p>
               </div>
             </div>
 
-            {/* PHASE 2: Rebalance */}
-            <div className="relative flex flex-col md:flex-row items-center justify-between w-full mb-16 md:mb-24 group">
-              
-              {/* Mobile Title */}
-              <div className="md:hidden pl-24 w-full mb-4">
-                <h3 className="font-display text-2xl font-bold uppercase text-brand-black">Rebalance</h3>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mt-1">Phase 02: Precision Protocols</p>
+            {/* Phase 2 */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-brand-gold/10 pb-12">
+              <div className="md:col-span-3 text-brand-gold font-display text-5xl font-bold">
+                02.
               </div>
-
-              {/* Desktop Left Col (Text Box) / Mobile Text Box */}
-              <div className="w-full md:w-5/12 pl-24 md:pl-0 md:pr-12 md:order-1 order-2">
-                <div className="bg-brand-tint/40 p-6 md:p-8 rounded-sm border border-brand-gold/20 shadow-sm">
-                  <p className="text-sm text-brand-black/80 leading-relaxed font-body md:text-right">
-                    Armed with clinical data, we build your precision protocol. This may include hormonal support, targeted nutrition and movement programming, sleep intervention, nervous system regulation and supplementation. Every element is evidence-based and personalised to your physiology, not a generic midlife template.
-                  </p>
-                </div>
-              </div>
-
-              {/* The Marker */}
-              <div className="absolute left-8 md:left-1/2 top-4 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 rounded-full bg-white border-2 border-brand-gold flex items-center justify-center z-10 shadow-sm transition-transform duration-300 group-hover:scale-110 md:order-2 order-1">
-                <span className="text-brand-black font-display font-bold text-xl">2</span>
-              </div>
-
-              {/* Desktop Right Col (Title & Icon) */}
-              <div className="hidden md:flex flex-col items-start w-5/12 pl-12 md:order-3 order-3">
-                <RefreshCcw className="w-12 h-12 text-brand-gold mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                <h3 className="font-display text-3xl font-bold uppercase text-brand-black">Rebalance</h3>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mt-2">Phase 02: Precision Protocols</p>
+              <div className="md:col-span-9">
+                <h3 className="font-display text-3xl font-bold uppercase text-brand-black mb-2">Rebalance</h3>
+                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mb-4">Phase 02: Precision Protocols</p>
+                <p className="text-sm text-brand-black/80 leading-relaxed font-body text-left">
+                  Armed with clinical data, we build your precision protocol. This may include hormonal support, targeted nutrition and movement programming, sleep intervention, nervous system regulation and supplementation. Every element is evidence-based and personalised to your physiology, not a generic midlife template.
+                </p>
               </div>
             </div>
 
-            {/* PHASE 3: Reclaim */}
-            <div className="relative flex flex-col md:flex-row items-center justify-between w-full group">
-              
-              {/* Mobile Title */}
-              <div className="md:hidden pl-24 w-full mb-4">
-                <h3 className="font-display text-2xl font-bold uppercase text-brand-black">Reclaim</h3>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mt-1">Phase 03: Sustainable Autonomy</p>
+            {/* Phase 3 */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              <div className="md:col-span-3 text-brand-gold font-display text-5xl font-bold">
+                03.
               </div>
-
-              {/* Desktop Left Col (Title & Icon) */}
-              <div className="hidden md:flex flex-col items-end w-5/12 text-right pr-12">
-                <Activity className="w-12 h-12 text-brand-gold mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                <h3 className="font-display text-3xl font-bold uppercase text-brand-black">Reclaim</h3>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mt-2">Phase 03: Sustainable Autonomy</p>
-              </div>
-
-              {/* The Marker */}
-              <div className="absolute left-8 md:left-1/2 top-4 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-12 h-12 rounded-full bg-white border-2 border-brand-gold flex items-center justify-center z-10 shadow-sm transition-transform duration-300 group-hover:scale-110">
-                <span className="text-brand-black font-display font-bold text-xl">3</span>
-              </div>
-
-              {/* Text Box */}
-              <div className="w-full md:w-5/12 pl-24 md:pl-12">
-                <div className="bg-brand-tint/40 p-6 md:p-8 rounded-sm border border-brand-gold/20 shadow-sm">
-                  <p className="text-sm text-brand-black/80 leading-relaxed font-body">
-                    The final phase is about sustainability. We provide the education, tools and clinical oversight to ensure you maintain your gains, understand your body&apos;s signals and approach the decades ahead from a position of physiological strength. Reclaim is not a finishing line. It is a new standard.
-                  </p>
-                </div>
+              <div className="md:col-span-9">
+                <h3 className="font-display text-3xl font-bold uppercase text-brand-black mb-2">Reclaim</h3>
+                <p className="text-[10px] uppercase tracking-widest font-bold text-brand-gold mb-4">Phase 03: Sustainable Autonomy</p>
+                <p className="text-sm text-brand-black/80 leading-relaxed font-body text-left">
+                  The final phase is about sustainability. We provide the education, tools and clinical oversight to ensure you maintain your gains, understand your body&apos;s signals and approach the decades ahead from a position of physiological strength. Reclaim is not a finishing line. It is a new standard.
+                </p>
               </div>
             </div>
 
@@ -180,7 +123,7 @@ export default function The3RMethodPage() {
           <h3 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-black mb-4">
             Precision Informed by Data
           </h3>
-          <p className="font-body text-sm text-brand-black/80 leading-relaxed max-w-2xl mx-auto">
+          <p className="font-body text-sm text-brand-black/80 leading-relaxed max-w-2xl mx-auto text-left md:text-center">
             We use objective markers to guide and measure progress: metabolic panels, hormonal profiles, movement benchmarks and, where relevant, tools such as continuous glucose monitoring and body composition assessment. This is not intuition. It is clinical precision, applied with care.
           </p>
         </div>

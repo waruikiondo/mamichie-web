@@ -135,7 +135,7 @@ export default function HomePage() {
           <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-10">
             The Philosophy Behind the Practice
           </h2>
-          <div className="space-y-6 text-base sm:text-lg text-brand-black/80 font-body leading-relaxed text-left md:text-center max-w-3xl mx-auto">
+          <div className="space-y-6 text-base sm:text-lg text-brand-black/80 font-body leading-relaxed text-center max-w-3xl mx-auto">
             <p>The 3R Method™ is built on one clinical conviction: that midlife hormonal change is not a single event to be managed, but a biological transition that affects every system in the body.</p>
             <p>Conventional approaches address the most visible symptoms. We work at the level of root cause, examining how sleep, metabolic function, movement, nervous system regulation and the full hormonal network interact. Each of these is a lever. Precision lies in knowing which lever to use, when and in what order.</p>
             <p className="font-medium text-brand-gold">Reset. Rebalance. Reclaim. These are not stages of a wellness journey. They are the three phases of a clinical reset protocol, designed to restore function, rebuild resilience and give you the tools to maintain your health for decades, not seasons.</p>
@@ -266,7 +266,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="font-display text-5xl sm:text-6xl text-brand-black mb-6 uppercase tracking-tight">The 3R Method™</h2>
             <p className="text-[11px] font-bold tracking-[0.2em] text-brand-gold uppercase mb-8">A precision health framework for the midlife woman. Internationally accredited. Amazon bestselling.</p>
-            <p className="font-body text-sm text-brand-black/70 leading-relaxed text-left md:text-center">The 3R Method™ was developed from clinical practice, not wellness theory. After years of observing the gap between what conventional medicine offers women in perimenopause and what their bodies actually need, Dr Vanessa Stirzaker built a structured clinical framework that addresses midlife physiology at the root. The method is internationally accredited and the foundation of the Amazon bestselling book by Dr Stirzaker, available now.</p>
+            <p className="font-body text-sm text-brand-black/70 leading-relaxed text-center">The 3R Method™ was developed from clinical practice, not wellness theory. After years of observing the gap between what conventional medicine offers women in perimenopause and what their bodies actually need, Dr Vanessa Stirzaker built a structured clinical framework that addresses midlife physiology at the root. The method is internationally accredited and the foundation of the Amazon bestselling book by Dr Stirzaker, available now.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-brand-gold/20 pt-16">
             <div className="space-y-6">
@@ -327,7 +327,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto">
           <span className="text-[10px] font-bold tracking-[0.2em] text-brand-black/50 uppercase mb-4 block">Start Here. For Free.</span>
           <h2 className="font-display text-4xl sm:text-5xl text-brand-black mb-6 leading-tight">An Introductory Guide to Precision Midlife Health</h2>
-          <p className="font-body text-sm text-brand-black/80 mb-10 text-left md:text-center">Plus the <span className="italic text-brand-gold">Hormonal Intelligence Weekly</span>: a free letter published each week covering one evidence-based insight from inside the 3R Method™.</p>
+          <p className="font-body text-sm text-brand-black/80 mb-10 text-center">Plus the <span className="italic text-brand-gold">Hormonal Intelligence Weekly</span>: a free letter published each week covering one evidence-based insight from inside the 3R Method™.</p>
 
           {isSubmitted ? (
             <div className="bg-brand-tint border border-brand-gold/30 p-6 rounded-sm inline-block">
