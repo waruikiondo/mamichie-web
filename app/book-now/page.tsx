@@ -2,9 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, Calendar, Clock, Globe, ShieldCheck } from "lucide-react";
+import { ChevronRight, Calendar, Globe, ShieldCheck } from "lucide-react";
 
 export default function BookNowPage() {
+  
+  // WEB MANAGER: When the client creates her Calendly account, simply paste her unique link here.
+  // The URL parameters at the end ensure the calendar buttons match the Mamichie Gold (#C9A84C).
+  const calendlyUrl = "https://calendly.com/your-booking-link?hide_gdpr_banner=1&primary_color=c9a84c";
+
   return (
     <div className="bg-brand-tint text-brand-black font-body selection:bg-brand-gold/30 flex-grow flex flex-col">
       
@@ -33,11 +38,11 @@ export default function BookNowPage() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           {/* Left Column: Booking Widget Area */}
-          <div className="lg:col-span-8 bg-white border border-brand-gold/20 rounded-sm shadow-sm min-h-[600px] flex flex-col relative overflow-hidden">
+          <div className="lg:col-span-8 bg-white border border-brand-gold/20 rounded-sm shadow-sm flex flex-col relative overflow-hidden">
             {/* Top accent bar */}
-            <div className="h-1 w-full bg-brand-gold absolute top-0 left-0"></div>
+            <div className="h-1 w-full bg-brand-gold absolute top-0 left-0 z-10"></div>
             
-            <div className="p-8 border-b border-brand-gold/10 bg-brand-tint/10 flex justify-between items-center">
+            <div className="p-8 border-b border-brand-gold/10 bg-brand-tint/10 flex justify-between items-center z-10 relative">
               <div>
                 <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-black">Select a Time</h2>
                 <p className="text-xs text-brand-black/60 font-medium mt-1">All available times are displayed in your local time zone.</p>
@@ -45,25 +50,23 @@ export default function BookNowPage() {
               <Calendar className="w-6 h-6 text-brand-gold/50 hidden sm:block" />
             </div>
 
-            {/* DEVELOPER NOTE: 
-              Replace this flex container below with your specific booking iframe 
-              (e.g., Calendly, Acuity, or Jane App embed code). 
-            */}
-            <div className="flex-1 flex flex-col items-center justify-center p-12 text-center bg-brand-black/5 border-2 border-dashed border-brand-gold/20 m-8 rounded-sm">
-              <Calendar className="w-10 h-10 text-brand-gold/40 mb-4" />
-              <p className="font-bold text-sm uppercase tracking-widest text-brand-black/40 mb-2">
-                Scheduling Module Integration Point
-              </p>
-              <p className="text-xs text-brand-black/50 font-body max-w-xs mx-auto">
-                Web Manager: Insert the third-party scheduling iframe or script exactly here to embed the live calendar directly into the UI.
-              </p>
+            {/* LIVE CALENDLY EMBED */}
+            <div className="w-full h-[700px] bg-white relative">
+              <iframe
+                src={calendlyUrl}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Schedule Consultation"
+                className="absolute inset-0"
+              />
             </div>
           </div>
 
           {/* Right Column: Process & Reassurance Panel */}
           <div className="lg:col-span-4 space-y-6">
             
-            {/* What to Expect - UPDATED TO LIGHT THEME */}
+            {/* What to Expect */}
             <div className="bg-white border border-brand-gold/20 p-8 rounded-sm shadow-sm">
               <h3 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-black mb-6">
                 What to Expect
