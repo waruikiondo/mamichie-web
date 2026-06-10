@@ -235,24 +235,25 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl sm:text-5xl text-brand-black">Why women trust Mamichie Healthcare®</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+          {/* Centered Wrap layout fixes the bottom-row gap issue */}
+          <div className="flex flex-wrap justify-center gap-8">
+             <div className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Clinical Authority. Personal Precision.</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left">Your care is led by Dr Vanessa Stirzaker: NHS and private clinician, internationally accredited Menopause Specialist and founder of the 3R Method™. With clinical experience spanning primary care and secondary care intensive medicine, Dr Stirzaker brings the rigour of evidence-based clinical thinking to every consultation, assessment and programme.</p>
              </div>
-             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">The Full Hormonal Picture</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left">We do not treat oestrogen in isolation. The 3R Method™ examines the full hormonal architecture of midlife: oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin. Each plays a role. Each interacts with the others. Lasting change requires understanding the whole system, not silencing its loudest signal.</p>
              </div>
-             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Root Cause, Not Symptom Management</h3>
-               <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left">The question is never simply &apos;what are your symptoms?&apos; It is &apos;what is driving them?&apos; Our clinical approach identifies upstream causes: whether metabolic, hormonal, structural or lifestyle-related and builds your Reset protocol around those findings. Precision beats willpower, every time.</p>
+               <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left">The question is never simply &apos;what are your symptoms?&apos; It is &apos;what is driving them?&apos; Our clinical approach identifies upstream causes: whether metabolic, hormonal, structural or lifestyle-related, and builds your Reset protocol around those findings. Precision beats willpower, every time.</p>
              </div>
-             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
+             <div className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Global Access. No Compromises.</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left">Your postcode should not determine the quality of your midlife care. Mamichie Healthcare® operates as a fully virtual practice, serving women across the UK, Europe and internationally. Expert-led consultations, personalised protocols and ongoing support are available wherever you are.</p>
              </div>
-             <div className="bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm md:col-span-2 lg:col-span-1 transition-transform hover:-translate-y-1 duration-300">
+             <div className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] bg-brand-tint p-8 border border-brand-gold/20 rounded-sm shadow-sm transition-transform hover:-translate-y-1 duration-300">
                <h3 className="font-display text-2xl text-brand-gold mb-4 leading-tight">Precision Informed by Data</h3>
                <p className="font-body text-sm text-brand-black/80 leading-relaxed text-left">We use objective markers to guide and measure progress: metabolic panels, hormonal profiles, movement benchmarks and, where relevant, tools such as continuous glucose monitoring and body composition assessment. This is not intuition. It is clinical precision, applied with care.</p>
              </div>
@@ -266,7 +267,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="font-display text-5xl sm:text-6xl text-brand-black mb-6 uppercase tracking-tight">The 3R Method™</h2>
             <p className="text-[11px] font-bold tracking-[0.2em] text-brand-gold uppercase mb-8">A precision health framework for the midlife woman. Internationally accredited. Amazon bestselling.</p>
-            <p className="font-body text-sm text-brand-black/70 leading-relaxed text-center">The 3R Method™ was developed from clinical practice, not wellness theory. After years of observing the gap between what conventional medicine offers women in perimenopause and what their bodies actually need, Dr Vanessa Stirzaker built a structured clinical framework that addresses midlife physiology at the root. The method is internationally accredited and the foundation of the Amazon bestselling book by Dr Stirzaker, available now.</p>
+            <p className="font-body text-sm text-brand-black/70 leading-relaxed text-left md:text-center">The 3R Method™ was developed from clinical practice, not wellness theory. After years of observing the gap between what conventional medicine offers women in perimenopause and what their bodies actually need, Dr Vanessa Stirzaker built a structured clinical framework that addresses midlife physiology at the root. The method is internationally accredited and the foundation of the Amazon bestselling book by Dr Stirzaker, available now.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-brand-gold/20 pt-16">
             <div className="space-y-6">
