@@ -2,6 +2,7 @@ import React from "react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { ChevronLeft, Calendar, BookOpen, ArrowRight, User } from "lucide-react";
+import ReactMarkdown from "react-markdown"; // Import the markdown renderer
 
 export const dynamic = 'force-dynamic';
 
@@ -40,7 +41,7 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
     <article className="min-h-screen bg-[#FDFBF7] text-[#4A1D36] font-body py-16 px-6">
       <div className="max-w-3xl mx-auto">
         
-        {/* 1. Author Meta Header (Matches old site style) */}
+        {/* Author Meta Header */}
         <div className="flex items-center space-x-3 mb-6">
           <div className="w-10 h-10 rounded-full bg-[#E5D3D6] flex items-center justify-center overflow-hidden">
             <User className="w-6 h-6 text-[#4A1D36]" />
@@ -51,22 +52,22 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* 2. Headline (Deep Maroon Color) */}
+        {/* Headline */}
         <h1 className="text-4xl md:text-5xl font-bold text-[#4A1D36] mb-10 leading-tight">
           {article.title}
         </h1>
 
-        {/* 3. Hero Image (Soft Rounded Corners) */}
+        {/* Hero Image */}
         <div className="w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-sm border border-[#EBE1D9]">
           <img src={getImageUrl(resolvedParams.slug)} alt={article.title} className="w-full h-full object-cover" />
         </div>
 
-        {/* 4. Content Body (Using Tailwind Typography for list/heading structure) */}
+        {/* Refined Content Body with Markdown Rendering */}
         <div className="prose prose-lg prose-headings:text-[#4A1D36] prose-p:text-[#4A1D36]/90 prose-li:text-[#4A1D36]/90 max-w-none">
-           {article.content}
+           <ReactMarkdown>{article.content}</ReactMarkdown>
         </div>
 
-        {/* 5. Refined Footer CTA */}
+        {/* Refined Footer CTA */}
         <footer className="mt-20 pt-12 border-t border-[#EBE1D9] text-center">
           <Link 
             href="/resources/library"
