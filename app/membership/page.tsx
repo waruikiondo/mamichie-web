@@ -74,7 +74,7 @@ export default function MembershipPage() {
               <button 
                 onClick={() => handleCheckout("monthly")}
                 disabled={isProcessing}
-                className="w-full border border-brand-black text-brand-black font-bold uppercase tracking-widest text-[11px] py-4 rounded-full hover:bg-brand-black hover:text-white transition-all disabled:opacity-50"
+                className="w-full border border-[#6A1B41] text-[#6A1B41] font-bold uppercase tracking-widest text-[11px] py-4 rounded-full hover:bg-[#6A1B41] hover:text-white transition-all disabled:opacity-50"
               >
                 {isProcessing ? "Processing..." : "Sign Up"}
               </button>
@@ -91,7 +91,7 @@ export default function MembershipPage() {
               <button 
                 onClick={() => handleCheckout("annual")}
                 disabled={isProcessing}
-                className="w-full bg-brand-gold border border-brand-gold text-brand-black font-bold uppercase tracking-widest text-[11px] py-4 rounded-full hover:bg-brand-black hover:border-brand-black hover:text-white transition-all shadow-sm disabled:opacity-50"
+                className="w-full bg-brand-gold border border-brand-gold text-brand-black font-bold uppercase tracking-widest text-[11px] py-4 rounded-full hover:bg-[#6A1B41] hover:border-[#6A1B41] hover:text-white transition-all shadow-sm disabled:opacity-50"
               >
                 {isProcessing ? "Processing..." : "Sign Up"}
               </button>
@@ -101,13 +101,13 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* 2. MISSION BANNER */}
-      <section className="bg-brand-black py-20 px-6 text-center">
+      {/* 2. MISSION BANNER (Updated to Deep Plum) */}
+      <section className="bg-[#6A1B41] py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl sm:text-4xl text-white mb-6 leading-tight">
             It is entirely essential to provide this clinical education without relying on brand sponsorships or paid advertising.
           </h2>
-          <p className="font-body text-sm text-white/70 leading-relaxed max-w-2xl mx-auto">
+          <p className="font-body text-sm text-white/80 leading-relaxed max-w-2xl mx-auto">
             To do this, our work is supported directly by our members. In return we offer exclusive content, direct clinical insights and the additional benefits detailed below.
           </p>
         </div>
@@ -190,7 +190,7 @@ export default function MembershipPage() {
                <p>Therefore the first application is establishing a rigid circadian anchor using early light exposure and targeted amino acid timing...</p>
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent flex items-end justify-center pb-12">
-                <div className="bg-brand-black text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center space-x-2">
+                <div className="bg-[#6A1B41] text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center space-x-2">
                   <Lock className="w-3 h-3" />
                   <span>Members Only Area</span>
                 </div>
@@ -242,7 +242,7 @@ export default function MembershipPage() {
             <button 
               onClick={() => handleCheckout(billingCycle)}
               disabled={isProcessing}
-              className="w-full bg-brand-black text-brand-tint font-bold uppercase tracking-widest text-xs py-4 rounded-sm hover:bg-brand-gold hover:text-brand-black transition-all shadow-md disabled:opacity-50"
+              className="w-full bg-[#6A1B41] text-white font-bold uppercase tracking-widest text-xs py-4 rounded-sm hover:bg-brand-gold hover:text-brand-black transition-all shadow-md disabled:opacity-50"
             >
               {isProcessing ? "Connecting to secure checkout..." : "Continue to Payment"}
             </button>

@@ -60,14 +60,14 @@ export default function Header() {
         <div className="hidden lg:flex items-center space-x-4">
           <Link 
             href="/membership" 
-            className="flex items-center space-x-1.5 bg-brand-black text-brand-tint px-6 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-gold hover:text-brand-black transition-all shadow-sm"
+            className="flex items-center space-x-1.5 bg-[#6A1B41] text-white px-6 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-gold hover:text-brand-black transition-all shadow-sm"
           >
             <Crown className="w-3.5 h-3.5" />
             <span>Membership</span>
           </Link>
           <Link 
             href="/book-now" 
-            className="bg-brand-gold text-brand-black px-6 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-brand-tint transition-all shadow-sm block"
+            className="bg-brand-gold text-brand-black px-6 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-brand-black hover:text-white transition-all shadow-sm block"
           >
             Book Now
           </Link>
@@ -104,7 +104,7 @@ export default function Header() {
           <div className="pt-4 space-y-3">
             <Link 
               href="/membership" 
-              className="flex items-center justify-center space-x-2 w-full bg-brand-black text-brand-tint py-3.5 rounded-sm font-bold text-xs uppercase tracking-wider shadow-sm" 
+              className="flex items-center justify-center space-x-2 w-full bg-[#6A1B41] text-white py-3.5 rounded-sm font-bold text-xs uppercase tracking-wider shadow-sm transition-all hover:bg-brand-gold hover:text-brand-black" 
               onClick={() => setMobileMenuOpen(false)}
             >
               <Crown className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/book-now" 
-              className="block w-full bg-brand-gold text-brand-black text-center py-3.5 rounded-sm font-bold text-xs uppercase tracking-wider shadow-sm" 
+              className="block w-full bg-brand-gold text-brand-black text-center py-3.5 rounded-sm font-bold text-xs uppercase tracking-wider shadow-sm transition-all hover:bg-brand-black hover:text-white" 
               onClick={() => setMobileMenuOpen(false)}
             >
               Book Now
