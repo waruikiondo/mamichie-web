@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 const getImageUrl = (slug: string) => {
   const map: Record<string, string> = {
     "menopause-weight-gain-decoded-how-to-fight-back": "/meno.avif",
-    "daily-nutritional-caloric-intake-recommendations": "/nutriotional.avif",
+    "daily-nutritional-caloric-intake-recommendations": "/nutritional.avif",
     "lets-talk-brain-fog-understanding-menopause-mental-haze": "/brain.avif",
     "the-mamichie-3r-method-program": "/mamichie.avif",
     "fueling-the-change-the-power-of-nutrition-during-menopause": "/change.avif",
