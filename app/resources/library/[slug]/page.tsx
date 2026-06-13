@@ -38,52 +38,52 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
   if (!article) return <div>Article not found.</div>;
 
   return (
-    <article className="min-h-screen bg-[#FDFBF7] text-[#4A1D36] font-body py-16 px-6">
+    <article className="min-h-screen bg-[#FDFBF7] text-[#4A1D36] py-16 px-4 md:px-8">
       <div className="max-w-3xl mx-auto">
         
-        {/* Author Meta Header */}
-        <div className="flex items-center space-x-3 mb-10">
-          <div className="w-10 h-10 rounded-full bg-[#E5D3D6] flex items-center justify-center overflow-hidden">
-            <User className="w-6 h-6 text-[#4A1D36]" />
+        {/* Navigation */}
+        <Link href="/resources/library" className="flex items-center text-xs font-bold uppercase tracking-widest text-[#4A1D36]/60 mb-10 hover:text-[#4A1D36] transition-colors">
+          <ChevronLeft className="w-4 h-4 mr-2" /> Back to Library
+        </Link>
+
+        {/* Header */}
+        <header className="mb-12">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#4A1D36] mb-8 leading-[1.1] tracking-tight">
+            {article.title}
+          </h1>
+          
+          <div className="flex items-center space-x-6 text-xs uppercase tracking-widest text-[#4A1D36]/70 font-semibold mb-10 pb-10 border-b border-[#EBE1D9]">
+            <span className="flex items-center"><Calendar className="w-4 h-4 mr-2" /> {new Date(article.published_at).toLocaleDateString()}</span>
+            <span>Dr. Vanessa Susana Stirzaker</span>
           </div>
-          <div className="text-sm">
-            <p className="font-bold text-[#4A1D36]">Dr. Vanessa Susana Stirzaker</p>
-            <p className="text-[11px] text-[#4A1D36]/70 uppercase tracking-wider font-semibold">2 min read</p>
+
+          {/* Hero Image */}
+          <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-sm border border-[#EBE1D9]">
+            <img src={getImageUrl(resolvedParams.slug)} alt={article.title} className="w-full h-full object-cover" />
           </div>
-        </div>
+        </header>
 
-        {/* Headline */}
-        <h1 className="text-4xl md:text-6xl font-bold text-[#4A1D36] mb-12 leading-[1.1]">
-          {article.title}
-        </h1>
-
-        {/* Hero Image */}
-        <div className="w-full aspect-video rounded-3xl overflow-hidden mb-16 shadow-lg border border-[#EBE1D9]">
-          <img src={getImageUrl(resolvedParams.slug)} alt={article.title} className="w-full h-full object-cover" />
-        </div>
-
-        {/* Improved Content Body with Precise Spacing */}
-        {/* Added specific spacing for lists and headings to mimic your reference */}
+        {/* 
+            FIXED SPACING AND INDENTATION:
+            The classes below specifically target the spacing (mt/mb) 
+            and list indentation (pl) to ensure it looks professional.
+        */}
         <div className="prose prose-lg max-w-none 
-          prose-headings:text-[#4A1D36] 
-          prose-headings:font-bold 
+          prose-headings:text-[#4A1D36] prose-headings:font-bold 
+          prose-p:text-[#4A1D36]/90 prose-p:leading-[1.8] prose-p:mb-8 
+          prose-ul:list-disc prose-ul:pl-8 prose-ul:mb-8 
+          prose-li:text-[#4A1D36]/90 prose-li:mb-3 prose-li:pl-2
           prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-          prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-          prose-p:text-[#4A1D36]/90 prose-p:leading-8 prose-p:mb-6
-          prose-li:text-[#4A1D36]/90 prose-li:my-2
-          prose-ul:mb-8 prose-ul:list-disc prose-ul:pl-6"
-        >
-           <ReactMarkdown>{article.content}</ReactMarkdown>
+          prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4">
+          
+          <ReactMarkdown>{article.content}</ReactMarkdown>
         </div>
 
-        {/* Footer CTA */}
-        <footer className="mt-24 pt-16 border-t border-[#EBE1D9] text-center">
-          <Link 
-            href="/resources/library"
-            className="inline-flex items-center space-x-3 bg-[#4A1D36] text-white px-10 py-4 rounded-full font-bold hover:bg-[#6B2B4E] transition-all shadow-md hover:shadow-lg"
-          >
+        {/* Footer */}
+        <footer className="mt-24 pt-12 border-t border-[#EBE1D9] text-center">
+          <Link href="/resources/library" className="inline-flex items-center space-x-3 bg-[#4A1D36] text-white px-10 py-4 rounded-full text-sm font-bold hover:bg-[#6B2B4E] transition-all shadow-md">
             <span>Explore Clinical Library</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </footer>
       </div>
