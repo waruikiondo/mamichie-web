@@ -1,7 +1,7 @@
 import React from "react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
-import { ChevronLeft, Calendar, BookOpen } from "lucide-react";
+import { ChevronLeft, Calendar, BookOpen, ArrowRight } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
 
@@ -74,8 +74,8 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
           <span>Back to Library Hub</span>
         </Link>
 
-        {/* Hero Image Addition */}
-        <div className="w-full aspect-[21/9] rounded-sm overflow-hidden mb-12 shadow-md bg-brand-tint">
+        {/* Enhanced Hero Image */}
+        <div className="w-full aspect-[21/9] rounded-sm overflow-hidden mb-12 shadow-md bg-white border border-brand-gold/10">
           <img 
             src={getImageUrl(resolvedParams.slug)} 
             alt={article.title} 
@@ -84,16 +84,16 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
         </div>
 
         {/* Article Meta Header Block */}
-        <header className="border-b border-brand-gold/20 pb-8 mb-12">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold px-2.5 py-1 bg-white border border-brand-gold/20 rounded-xs inline-block mb-4">
+        <header className="border-b border-brand-gold/20 pb-10 mb-12">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold px-3 py-1 bg-white border border-brand-gold/20 rounded-sm inline-block mb-6">
             Pillar: {article.pillar.replace("-", " ")}
           </span>
           
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight uppercase leading-tight text-brand-black">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight uppercase leading-tight text-brand-black">
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-6 mt-6 text-[11px] font-medium tracking-wide text-brand-black/40 uppercase">
+          <div className="flex flex-wrap items-center gap-8 mt-8 text-[11px] font-bold tracking-widest text-brand-black/50 uppercase">
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4 text-brand-gold" />
               <span>
@@ -106,34 +106,37 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
             </div>
             <div className="flex items-center space-x-2">
               <BookOpen className="w-4 h-4 text-brand-gold" />
-              <span>Mamichie® Authoritative Briefing</span>
+              <span>Mamichie® Intelligence</span>
             </div>
           </div>
         </header>
 
         {/* Structured Executive Summary Row */}
-        <div className="bg-white border border-brand-gold/15 p-6 rounded-sm mb-12 italic text-sm text-brand-black/80 font-medium leading-relaxed shadow-xs">
-          <strong className="block text-[10px] font-bold tracking-widest uppercase text-brand-gold not-italic mb-1">
+        <div className="bg-white border border-brand-gold/20 p-8 rounded-sm mb-16 shadow-sm">
+          <strong className="block text-[10px] font-bold tracking-widest uppercase text-brand-gold mb-3">
             Clinical Overview
           </strong>
-          &quot;{article.summary}&quot;
+          <p className="text-sm text-brand-black/80 font-medium italic leading-relaxed">
+            &quot;{article.summary}&quot;
+          </p>
         </div>
 
-        {/* Core Markdown Text Body Layer */}
-        <div className="prose prose-brand max-w-none text-brand-black/90 leading-relaxed font-body text-sm space-y-6 whitespace-pre-wrap">
+        {/* Core Markdown Text Body Layer - Updated Typography */}
+        <div className="prose prose-brand prose-headings:font-display prose-headings:uppercase prose-p:leading-relaxed prose-p:text-sm prose-p:text-brand-black/90 max-w-none space-y-8">
           {article.content}
         </div>
 
-        {/* Footer Navigation Section */}
-        <footer className="border-t border-brand-gold/20 mt-16 pt-8 text-center">
-          <p className="text-[10px] uppercase font-bold tracking-widest text-brand-black/30 mb-4">
+        {/* Updated Footer Navigation Section */}
+        <footer className="border-t border-brand-gold/20 mt-20 pt-12 text-center">
+          <p className="text-[10px] uppercase font-bold tracking-widest text-brand-black/30 mb-6">
             End of Intelligence Briefing
           </p>
           <Link 
             href="/resources/library"
-            className="inline-block border border-brand-black bg-brand-black text-brand-tint text-xs font-bold uppercase tracking-widest py-3 px-8 rounded-sm hover:bg-brand-gold hover:border-brand-gold transition-colors shadow-sm"
+            className="group inline-flex items-center space-x-3 border border-brand-gold bg-brand-gold text-brand-black text-xs font-bold uppercase tracking-widest py-4 px-10 rounded-sm hover:bg-brand-black hover:text-white hover:border-brand-black transition-all duration-300 shadow-md"
           >
-            Explore Alternative Pillars
+            <span>Explore Alternative Pillars</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </footer>
 
