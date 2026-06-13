@@ -3,14 +3,27 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { ChevronLeft, Calendar, BookOpen } from "lucide-react";
 
-// THIS IS THE FIX: Force the server to pull fresh data from Supabase every time.
 export const dynamic = 'force-dynamic';
+
+// Helper function to map slugs to image files in the /public folder
+const getImageUrl = (slug: string) => {
+  const map: Record<string, string> = {
+    "menopause-weight-gain-decoded-how-to-fight-back": "/meno.avif",
+    "daily-nutritional-caloric-intake-recommendations": "/nutriotional.avif",
+    "lets-talk-brain-fog-understanding-menopause-mental-haze": "/brain.avif",
+    "the-mamichie-3r-method-program": "/mamichie.avif",
+    "fueling-the-change-the-power-of-nutrition-during-menopause": "/change.avif",
+    "daily-reset-ritual-guide": "/reset.avif",
+    "how-cortisol-could-be-sabotaging-your-midlife-health": "/cortisol.avif",
+    "stress-your-ovaries-what-every-woman-needs-to-know": "/stress.avif",
+  };
+  return map[slug] || "/logo.avif";
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Fetch article data directly on the server for speed and optimal SEO indexing
 async function getArticleData(slug: string) {
   const { data, error } = await supabase
     .from("posts")
@@ -28,7 +41,6 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
   const resolvedParams = await params;
   const article = await getArticleData(resolvedParams.slug);
 
-  // Fallback state if an article slug isn't matched in Supabase
   if (!article) {
     return (
       <div className="min-h-screen bg-brand-tint text-brand-black flex flex-col items-center justify-center p-6">
@@ -61,6 +73,15 @@ export default async function ClinicalArticlePage({ params }: PageProps) {
           <ChevronLeft className="w-3.5 h-3.5" />
           <span>Back to Library Hub</span>
         </Link>
+
+        {/* Hero Image Addition */}
+        <div className="w-full aspect-[21/9] rounded-sm overflow-hidden mb-12 shadow-md bg-brand-tint">
+          <img 
+            src={getImageUrl(resolvedParams.slug)} 
+            alt={article.title} 
+            className="w-full h-full object-cover" 
+          />
+        </div>
 
         {/* Article Meta Header Block */}
         <header className="border-b border-brand-gold/20 pb-8 mb-12">
