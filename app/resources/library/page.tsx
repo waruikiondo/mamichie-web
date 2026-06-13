@@ -5,6 +5,9 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { BookOpen, ShieldAlert, Heart, Zap, Moon, Flame, Loader2 } from "lucide-react";
 
+// THIS IS THE FIX: It prevents Vercel from caching the blank page!
+export const dynamic = 'force-dynamic';
+
 const PILLARS = [
   { id: "all", label: "All Insights", icon: BookOpen, desc: "Explore the full collection of evidence-based clinical intelligence." },
   { id: "hormonal-architecture", label: "Hormonal Architecture", icon: Zap, desc: "Oestrogen, progesterone, testosterone, DHEA, cortisol, insulin, thyroid hormones and melatonin in midlife: how they interact and why they matter." },

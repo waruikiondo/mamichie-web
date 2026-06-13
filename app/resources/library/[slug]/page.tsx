@@ -3,6 +3,9 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { ChevronLeft, Calendar, BookOpen } from "lucide-react";
 
+// THIS IS THE FIX: Force the server to pull fresh data from Supabase every time.
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
