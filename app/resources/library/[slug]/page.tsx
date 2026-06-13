@@ -1,11 +1,10 @@
 import React from "react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
-import { ChevronLeft, Calendar, BookOpen, ArrowRight } from "lucide-react";
+import { ChevronLeft, Calendar, BookOpen, ArrowRight, User } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
 
-// Helper function to map slugs to image files in the /public folder
 const getImageUrl = (slug: string) => {
   const map: Record<string, string> = {
     "menopause-weight-gain-decoded-how-to-fight-back": "/meno.avif",
@@ -20,9 +19,7 @@ const getImageUrl = (slug: string) => {
   return map[slug] || "/logo.avif";
 };
 
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
+interface PageProps { params: Promise<{ slug: string }>; }
 
 async function getArticleData(slug: string) {
   const { data, error } = await supabase
@@ -30,116 +27,55 @@ async function getArticleData(slug: string) {
     .select("title, content, pillar, published_at, summary")
     .eq("slug", slug)
     .single();
-
-  if (error || !data) {
-    return null;
-  }
-  return data;
+  return error ? null : data;
 }
 
 export default async function ClinicalArticlePage({ params }: PageProps) {
   const resolvedParams = await params;
   const article = await getArticleData(resolvedParams.slug);
 
-  if (!article) {
-    return (
-      <div className="min-h-screen bg-brand-tint text-brand-black flex flex-col items-center justify-center p-6">
-        <h1 className="font-display text-2xl font-bold uppercase tracking-tight text-brand-black">
-          Clinical Briefing Not Found
-        </h1>
-        <p className="text-xs text-brand-black/60 font-body mt-2 mb-6">
-          The requested document may be undergoing editorial or clinical modification.
-        </p>
-        <Link 
-          href="/resources/library" 
-          className="text-xs font-bold uppercase tracking-widest text-brand-gold flex items-center space-x-2 hover:underline"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          <span>Return to Clinical Library</span>
-        </Link>
-      </div>
-    );
-  }
+  if (!article) return <div>Article not found.</div>;
 
   return (
-    <article className="min-h-screen bg-brand-tint text-brand-black font-body py-16 px-6">
+    <article className="min-h-screen bg-[#FDFBF7] text-[#4A1D36] font-body py-16 px-6">
       <div className="max-w-3xl mx-auto">
         
-        {/* Navigation Breadcrumb */}
-        <Link 
-          href="/resources/library" 
-          className="text-[10px] font-bold uppercase tracking-widest text-brand-black/50 flex items-center space-x-1.5 hover:text-brand-gold transition-colors mb-8"
-        >
-          <ChevronLeft className="w-3.5 h-3.5" />
-          <span>Back to Library Hub</span>
-        </Link>
-
-        {/* Enhanced Hero Image */}
-        <div className="w-full aspect-[21/9] rounded-sm overflow-hidden mb-12 shadow-md bg-white border border-brand-gold/10">
-          <img 
-            src={getImageUrl(resolvedParams.slug)} 
-            alt={article.title} 
-            className="w-full h-full object-cover" 
-          />
-        </div>
-
-        {/* Article Meta Header Block */}
-        <header className="border-b border-brand-gold/20 pb-10 mb-12">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold px-3 py-1 bg-white border border-brand-gold/20 rounded-sm inline-block mb-6">
-            Pillar: {article.pillar.replace("-", " ")}
-          </span>
-          
-          <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight uppercase leading-tight text-brand-black">
-            {article.title}
-          </h1>
-
-          <div className="flex flex-wrap items-center gap-8 mt-8 text-[11px] font-bold tracking-widest text-brand-black/50 uppercase">
-            <div className="flex items-center space-x-2">
-              <Calendar className="w-4 h-4 text-brand-gold" />
-              <span>
-                {new Date(article.published_at).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric"
-                })}
-              </span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <BookOpen className="w-4 h-4 text-brand-gold" />
-              <span>Mamichie® Intelligence</span>
-            </div>
+        {/* 1. Author Meta Header (Matches old site style) */}
+        <div className="flex items-center space-x-3 mb-6">
+          <div className="w-10 h-10 rounded-full bg-[#E5D3D6] flex items-center justify-center overflow-hidden">
+            <User className="w-6 h-6 text-[#4A1D36]" />
           </div>
-        </header>
-
-        {/* Structured Executive Summary Row */}
-        <div className="bg-white border border-brand-gold/20 p-8 rounded-sm mb-16 shadow-sm">
-          <strong className="block text-[10px] font-bold tracking-widest uppercase text-brand-gold mb-3">
-            Clinical Overview
-          </strong>
-          <p className="text-sm text-brand-black/80 font-medium italic leading-relaxed">
-            &quot;{article.summary}&quot;
-          </p>
+          <div className="text-sm">
+            <p className="font-bold text-[#4A1D36]">Dr. Vanessa Susana Stirzaker</p>
+            <p className="text-[11px] text-[#4A1D36]/70">2 min read</p>
+          </div>
         </div>
 
-        {/* Core Markdown Text Body Layer - Updated Typography */}
-        <div className="prose prose-brand prose-headings:font-display prose-headings:uppercase prose-p:leading-relaxed prose-p:text-sm prose-p:text-brand-black/90 max-w-none space-y-8">
-          {article.content}
+        {/* 2. Headline (Deep Maroon Color) */}
+        <h1 className="text-4xl md:text-5xl font-bold text-[#4A1D36] mb-10 leading-tight">
+          {article.title}
+        </h1>
+
+        {/* 3. Hero Image (Soft Rounded Corners) */}
+        <div className="w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-sm border border-[#EBE1D9]">
+          <img src={getImageUrl(resolvedParams.slug)} alt={article.title} className="w-full h-full object-cover" />
         </div>
 
-        {/* Updated Footer Navigation Section */}
-        <footer className="border-t border-brand-gold/20 mt-20 pt-12 text-center">
-          <p className="text-[10px] uppercase font-bold tracking-widest text-brand-black/30 mb-6">
-            End of Intelligence Briefing
-          </p>
+        {/* 4. Content Body (Using Tailwind Typography for list/heading structure) */}
+        <div className="prose prose-lg prose-headings:text-[#4A1D36] prose-p:text-[#4A1D36]/90 prose-li:text-[#4A1D36]/90 max-w-none">
+           {article.content}
+        </div>
+
+        {/* 5. Refined Footer CTA */}
+        <footer className="mt-20 pt-12 border-t border-[#EBE1D9] text-center">
           <Link 
             href="/resources/library"
-            className="group inline-flex items-center space-x-3 border border-brand-gold bg-brand-gold text-brand-black text-xs font-bold uppercase tracking-widest py-4 px-10 rounded-sm hover:bg-brand-black hover:text-white hover:border-brand-black transition-all duration-300 shadow-md"
+            className="inline-flex items-center space-x-2 bg-[#4A1D36] text-white px-8 py-3 rounded-full hover:bg-[#6B2B4E] transition-all"
           >
-            <span>Explore Alternative Pillars</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <span>Explore Clinical Library</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </footer>
-
       </div>
     </article>
   );
